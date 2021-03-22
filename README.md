@@ -1,4 +1,4 @@
-![test](https://github.com/containerbase/.github/workflows/test/badge.svg)
+![test](https://github.com/containerbase/.github/actions/workflows/test.yml/badge.svg)
 ![GitHub](https://img.shields.io/github/license/containerbase/.github)
 
 # containerbase .github
