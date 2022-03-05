@@ -125,8 +125,8 @@
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
     },
     {
-      "description": "Update _VERSION variables in shell scripts",
-      "fileMatch": ["\\.sh$"],
+      "description": "Update _VERSION variables in shell and bats scripts",
+      "fileMatch": ["\\.sh$", "\\.bats$"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: lookupName=(?<lookupName>.+?))?(?: versioning=(?<versioning>[a-z-]+?))?\\s[A-Z_]+?_VERSION=(?<currentValue>.+?)\\s"
       ],
