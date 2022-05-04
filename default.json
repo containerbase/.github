@@ -20,7 +20,11 @@
   "packageRules": [
     {
       "description": "Require dashboard approval for major updates except Renovate",
-      "excludePackagePatterns": ["^renovate(bot)?($|/)", "^containerbase\\/buildpack$"],
+      "excludePackagePatterns": [
+        "^renovate(bot)?($|/)",
+        "^(renovate|(?:ghcr.io\\/)?containerbase)\\/buildpack$",
+        "^@renovatebot\\/"
+      ],
       "matchUpdateTypes": ["major"],
       "dependencyDashboardApproval": true
     },
@@ -64,7 +68,13 @@
       "description": "Group Renovate Buildpack and Ubuntu digest updates with themselves",
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["digest"],
-      "matchPackageNames": ["ubuntu", "renovate/ubuntu", "renovate/buildpack"],
+      "matchPackageNames": [
+        "ubuntu",
+        "renovate/ubuntu",
+        "renovate/buildpack",
+        "containerbase/buildpack",
+        "ghcr.io/containerbase/buildpack"
+      ],
       "branchTopic": "{{{depNameSanitized}}}-digests",
       "commitMessageTopic": "{{{depName}}} Docker digests"
     },
@@ -88,7 +98,7 @@
     },
     {
       "description": "Use node versioning for containerbase node",
-      "matchPackageNames": ["containerbase/node"],
+      "matchPackageNames": ["containerbase/node", "ghcr.io/containerbase/node"],
       "versioning": "node"
     },
     {
@@ -96,6 +106,15 @@
       "matchFiles": ["renovate.Dockerfile"],
       "matchUpdateTypes": ["major", "minor"],
       "enabled": false
+    },
+    {
+      "description": "Trigger fix release for buildpack updates",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": [
+        "containerbase/buildpack",
+        "ghcr.io/containerbase/buildpack"
+      ],
+      "semanticCommitType": "fix"
     }
   ],
   "regexManagers": [
