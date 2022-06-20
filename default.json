@@ -29,6 +29,12 @@
       "dependencyDashboardApproval": true
     },
     {
+      "description": "Don't require dashboard approval for major github action updates",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": false
+    },
+    {
       "description": "Automerge non-major updates",
       "matchUpdateTypes": ["minor", "patch", "digest", "lockFileMaintenance"],
       "automerge": true
@@ -90,7 +96,7 @@
       "matchPackageNames": ["aws-sdk"],
       "matchPackagePatterns": ["^@aws-sdk\\/"],
       "dependencyDashboardApproval": true
-    },    
+    },
     {
       "description": "Only patch updates on renovate rebuild trigger files",
       "matchFiles": ["renovate.Dockerfile"],
