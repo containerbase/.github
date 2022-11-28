@@ -17,6 +17,7 @@
   "dependencyDashboard": true,
   "prCreation": "not-pending",
   "rebaseWhen": "behind-base-branch",
+  "separateMajorMinor": true,
   "packageRules": [
     {
       "description": "Require dashboard approval for major updates except Renovate",
