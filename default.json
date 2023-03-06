@@ -124,7 +124,7 @@
       "semanticCommitType": "fix"
     },
     {
-      "descriptions": "Handle tag prefix in kustomize monorepo",
+      "description": "Handle tag prefix in kustomize monorepo",
       "matchPackageNames": ["kubernetes-sigs/kustomize"],
       "extractVersion": "^kustomize/v(?<version>.*)$"
     }
