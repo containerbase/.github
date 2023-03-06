@@ -122,6 +122,11 @@
         "ghcr.io/containerbase/buildpack"
       ],
       "semanticCommitType": "fix"
+    },
+    {
+      "description": "Handle tag prefix in kustomize monorepo",
+      "matchPackageNames": ["kubernetes-sigs/kustomize"],
+      "extractVersion": "^kustomize/v(?<version>.*)$"
     }
   ],
   "regexManagers": [
