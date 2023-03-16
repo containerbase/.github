@@ -127,6 +127,24 @@
       "description": "Handle tag prefix in kustomize monorepo",
       "matchPackageNames": ["kubernetes-sigs/kustomize"],
       "extractVersion": "^kustomize/v(?<version>.*)$"
+    },
+    {
+      "description": "use build semanctic type for some deps",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": [
+        "@vercel/ncc",
+        "conventional-changelog-conventionalcommits",
+        "semantic-release",
+        "typescript"
+      ],
+      "matchPackagePrefixes": ["@semantic-release/"],
+      "semanticCommitType": "build"
+    },
+    {
+      "description": "use ci semanctic type for some deps",
+      "matchPaths": [".github/workflows/**"],
+      "semanticCommitType": "ci",
+      "additionalBranchPrefix": "ci-"
     }
   ],
   "regexManagers": [
