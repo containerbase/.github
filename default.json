@@ -145,6 +145,11 @@
       "matchPaths": [".github/workflows/**"],
       "semanticCommitType": "ci",
       "additionalBranchPrefix": "ci-"
+    },
+    {
+      "description": "don't pin our node devcontainer digest",
+      "matchPackageNames": ["ghcr.io/containerbase/node"],
+      "pinDigests": false
     }
   ],
   "regexManagers": [
