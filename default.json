@@ -148,6 +148,7 @@
     },
     {
       "description": "don't pin our node devcontainer digest",
+      "matchFiles": [".devcontainer/Dockerfile"],
       "matchPackageNames": ["ghcr.io/containerbase/node"],
       "pinDigests": false
     }
