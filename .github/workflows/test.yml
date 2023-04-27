@@ -3,13 +3,16 @@ name: test
 on:
   push:
   pull_request:
-  
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
   cancel-in-progress: true
 
 env:
   LOG_LEVEL: debug
+
+permissions:
+  contents: read
 
 jobs:
   preset:
