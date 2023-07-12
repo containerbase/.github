@@ -16,6 +16,7 @@
   "dependencyDashboard": true,
   "prCreation": "not-pending",
   "separateMajorMinor": true,
+  "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
     {
       "description": "Require dashboard approval for major updates except Renovate",
