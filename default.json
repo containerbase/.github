@@ -17,6 +17,9 @@
   "prCreation": "not-pending",
   "separateMajorMinor": true,
   "postUpdateOptions": ["yarnDedupeHighest"],
+  "regex": {
+    "pinDigests": false
+  },
   "packageRules": [
     {
       "description": "Require dashboard approval for major updates except Renovate",
