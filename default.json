@@ -145,7 +145,7 @@
     },
     {
       "description": "use ci semanctic type for some deps",
-      "matchPaths": [".github/workflows/**"],
+      "matchPaths": [".github/workflows/**", ".github/actions/**"],
       "semanticCommitType": "ci",
       "additionalBranchPrefix": "ci-"
     },
