@@ -17,9 +17,6 @@
   "prCreation": "not-pending",
   "separateMajorMinor": true,
   "postUpdateOptions": ["yarnDedupeHighest"],
-  "regex": {
-    "pinDigests": false
-  },
   "packageRules": [
     {
       "description": "Require dashboard approval for major updates except Renovate",
@@ -154,7 +151,12 @@
       "matchFiles": [".devcontainer/Dockerfile"],
       "matchPackageNames": ["ghcr.io/containerbase/node"],
       "pinDigests": false
-    }
+    },
+    {
+      "description": "don't pin digest for regex manager",
+      "matchManagers": ["regex"],
+      "pinDigests": false,
+    },
   ],
   "regexManagers": [
     {
