@@ -12,9 +12,7 @@
     "helpers:pinGitHubActionDigests"
   ],
   "assignees": ["rarkins", "viceice"],
-  "automergeType": "branch",
   "dependencyDashboard": true,
-  "prCreation": "not-pending",
   "separateMajorMinor": true,
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
