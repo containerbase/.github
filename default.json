@@ -11,7 +11,7 @@
     "group:linters",
     "helpers:pinGitHubActionDigests"
   ],
-  "assignees": ["rarkins", "viceice"],
+  "assignees": ["viceice"],
   "dependencyDashboard": true,
   "separateMajorMinor": true,
   "postUpdateOptions": ["yarnDedupeHighest"],
