@@ -153,7 +153,7 @@
     {
       "description": "don't pin digest for regex manager",
       "matchManagers": ["regex"],
-      "pinDigests": false,
+      "pinDigests": false
     }
   ],
   "regexManagers": [
