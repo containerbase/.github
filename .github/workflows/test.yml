@@ -12,7 +12,7 @@ concurrency:
 
 env:
   LOG_LEVEL: debug
-  RENOVATE_VERSION: 37.77.1 # renovate: datasource=npm depName=renovate
+  RENOVATE_VERSION: 37.78.1 # renovate: datasource=npm depName=renovate
 
 permissions:
   contents: read
