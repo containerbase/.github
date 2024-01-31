@@ -17,6 +17,12 @@
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
     {
+      "description": "Three days stability period for npm packages except Renovate",
+      "matchDatasources": ["npm"],
+      "excludePackageNames": ["renovate"],
+      "stabilityDays": 3
+    },
+    {
       "description": "Require dashboard approval for major updates except Renovate",
       "excludePackagePatterns": [
         "^renovate(bot)?($|/)",
@@ -82,12 +88,6 @@
       ],
       "branchTopic": "{{{depNameSanitized}}}-digests",
       "commitMessageTopic": "{{{depName}}} Docker digests"
-    },
-    {
-      "description": "One week stability period for npm packages except Renovate",
-      "matchDatasources": ["npm"],
-      "excludePackageNames": ["renovate"],
-      "stabilityDays": 7
     },
     {
       "description": "Require approval for aws-sdk as it updates too often",
