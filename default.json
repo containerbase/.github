@@ -115,10 +115,7 @@
     {
       "description": "Trigger fix release for buildpack updates",
       "matchDatasources": ["docker"],
-      "matchPackageNames": [
-        "containerbase/base",
-        "ghcr.io/containerbase/base"
-      ],
+      "matchPackageNames": ["containerbase/base", "ghcr.io/containerbase/base"],
       "semanticCommitType": "fix"
     },
     {
@@ -146,8 +143,12 @@
     },
     {
       "description": "Don't pin our dev docker image digest",
-      "matchFiles": [".devcontainer/Dockerfile",".gitpod/Dockerfile"],
-      "matchPackageNames": ["ghcr.io/containerbase/devcontainer", "ghcr.io/containerbase/gitpod", "ghcr.io/containerbase/node"],
+      "matchFiles": [".devcontainer/Dockerfile", ".gitpod/Dockerfile"],
+      "matchPackageNames": [
+        "ghcr.io/containerbase/devcontainer",
+        "ghcr.io/containerbase/gitpod",
+        "ghcr.io/containerbase/node"
+      ],
       "semanticCommitType": "chore",
       "pinDigests": false
     },
