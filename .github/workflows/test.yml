@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
       - run: corepack enable
       - run: pnpm install
       - run: pnpm prettier
@@ -42,7 +42,7 @@ jobs:
       RENOVATE_CONFIG_FILE: ${{ matrix.file }}.json
 
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
 
       - name: testing ${{ matrix.file }}
         run: npx -p renovate@${{env.RENOVATE_VERSION}} renovate-config-validator
