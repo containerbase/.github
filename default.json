@@ -73,7 +73,7 @@
     {
       "description": "Disable Ubuntu minor updates",
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["amd64/ubuntu", "ubuntu"],
+      "matchDepNames": ["amd64/ubuntu", "ubuntu", "ghcr.io/containerbase/ubuntu"],
       "matchUpdateTypes": ["minor"],
       "enabled": false
     },
@@ -81,10 +81,11 @@
       "description": "Group Renovate Buildpack and Ubuntu digest updates with themselves",
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["digest"],
-      "matchPackageNames": [
+      "matchDepNames": [
         "ubuntu",
         "containerbase/base",
-        "ghcr.io/containerbase/base"
+        "ghcr.io/containerbase/base",
+        "ghcr.io/containerbase/ubuntu"
       ],
       "branchTopic": "{{{depNameSanitized}}}-digests",
       "commitMessageTopic": "{{{depName}}} Docker digests"
