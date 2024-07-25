@@ -73,7 +73,11 @@
     {
       "description": "Disable Ubuntu minor updates",
       "matchDatasources": ["docker"],
-      "matchDepNames": ["amd64/ubuntu", "ubuntu", "ghcr.io/containerbase/ubuntu"],
+      "matchDepNames": [
+        "amd64/ubuntu",
+        "ubuntu",
+        "ghcr.io/containerbase/ubuntu"
+      ],
       "matchUpdateTypes": ["minor"],
       "enabled": false
     },
