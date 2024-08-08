@@ -23,6 +23,12 @@
       "stabilityDays": 3
     },
     {
+      "description": "Group linter minor and patch updates",
+      "extends": ["packages:linters"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "linters"
+    },
+    {
       "description": "Require Dependency Dashboard approval for major updates, except Renovate.",
       "excludePackagePatterns": [
         "^renovate(bot)?($|/)",
@@ -165,12 +171,6 @@
       "description": "defer prebuild updates to wait for arm64 builds",
       "matchPackageNames": ["/^containerbase/.+-prebuild$/"],
       "minimumReleaseAge": "2h"
-    },
-    {
-      "description": "Don't group linter major updates",
-      "extends": ["packages:linters"],
-      "matchUpdateTypes": ["major"],
-      "groupName": null
     }
   ],
   "regexManagers": [
