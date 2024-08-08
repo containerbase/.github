@@ -160,6 +160,11 @@
       "description": "don't pin digest for regex manager",
       "matchManagers": ["regex"],
       "pinDigests": false
+    },
+    {
+      "description": "defer prebuild updates to wait for arm64 builds",
+      "matchPackageNames": ["/^containerbase/.+-prebuild$/"],
+      "minimumReleaseAge": "2h"
     }
   ],
   "regexManagers": [
