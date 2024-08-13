@@ -8,7 +8,6 @@
     ":semanticCommitScope(deps)",
     "docker:enableMajor",
     "docker:pinDigests",
-    "group:linters",
     "helpers:pinGitHubActionDigests"
   ],
   "assignees": ["viceice"],
