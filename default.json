@@ -55,9 +55,8 @@
       "versioning": "regex:^v(?<major>\\d+)(\\.(?<minor>\\d+)\\.(?<patch>\\d+))?$"
     },
     {
-      "description": "Group Prettier packages.",
-      "matchPackageNames": ["prettier"],
-      "matchPackagePatterns": ["^@prettier/", "^prettier-plugin-"],
+      "description": "Group Prettier packages",
+      "matchPackageNames": ["prettier", "@prettier/**", "prettier-plugin-**"],
       "groupName": "prettier packages"
     },
     {
@@ -102,8 +101,7 @@
     {
       "description": "Require approval for aws-sdk, as it updates too often.",
       "matchDatasources": ["npm"],
-      "matchPackageNames": ["aws-sdk"],
-      "matchPackagePatterns": ["^@aws-sdk/"],
+      "matchPackageNames": ["aws-sdk", "@aws-sdk/**"],
       "dependencyDashboardApproval": true
     },
     {
