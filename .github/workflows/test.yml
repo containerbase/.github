@@ -12,7 +12,7 @@ concurrency:
 
 env:
   LOG_LEVEL: debug
-  RENOVATE_VERSION: 38.72.1 # renovate: datasource=npm depName=renovate
+  RENOVATE_VERSION: 38.73.1 # renovate: datasource=npm depName=renovate
   HUSKY: 0
 
 permissions:
