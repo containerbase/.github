@@ -12,7 +12,6 @@ concurrency:
 
 env:
   LOG_LEVEL: debug
-  RENOVATE_VERSION: 38.142.5 # renovate: datasource=npm depName=renovate
   HUSKY: 0
 
 permissions:
@@ -24,13 +23,24 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - run: corepack enable
+        with:
+          show-progress: false
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
+        with:
+          standalone: true
+
       - run: pnpm install
       - run: pnpm prettier
 
   preset:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    container: 
+      image: ghcr.io/renovatebot/renovate:38.142.5
+      # github hosted runners are running as `1001:127` (ubuntu:docker)
+      options: -u 1001:0 --group-add 1001 --group-add 12021 --group-add 127
 
     strategy:
       matrix:
@@ -38,14 +48,14 @@ jobs:
           - default
           - renovate-config
           - merge-queue
-    env:
-      RENOVATE_CONFIG_FILE: ${{ matrix.file }}.json
 
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          show-progress: false
 
       - name: testing ${{ matrix.file }}
-        run: npx -p renovate@${{env.RENOVATE_VERSION}} renovate-config-validator
+        run: renovate-config-validator ${{ matrix.file }}.json
 
   preset-success:
     runs-on: ubuntu-latest
