@@ -168,6 +168,12 @@
       "description": "defer prebuild updates to wait for arm64 builds",
       "matchPackageNames": ["/^containerbase/.+-prebuild$/"],
       "minimumReleaseAge": "2h"
+    },
+    {
+      "description": "allow newer pnpm and don't require approval",
+      "matchPackageNames": ["pnpm"],
+      "respectLatest": false,
+      "dependencyDashboardApproval": false
     }
   ],
   "regexManagers": [
