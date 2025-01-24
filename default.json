@@ -217,6 +217,14 @@
         "\\s+version: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s",
         "\\s*[A-Z_]+?_VERSION: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s"
       ]
+    },
+    {
+      "description": "Update `os:` matrix runner variables in GitHub workflow files.",
+      "fileMatch": ["^\\.github/workflows/[^/]+\\.ya?ml$"],
+      "matchStrings": [
+        "\\s+os: (?<depName>[a-z-]+?)-(?<currentValue>[a-z0-9.-]+?)\\s"
+      ],
+      "datasourceTemplate": "github-runners"
     }
   ]
 }
