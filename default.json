@@ -13,7 +13,6 @@
   "assignees": ["viceice"],
   "dependencyDashboard": true,
   "separateMajorMinor": true,
-  "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
     {
       "description": "Wait three days for npm packages to stabilize, except Renovate.",
