@@ -2,13 +2,11 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Default preset for our containerbase repositories.",
   "extends": [
-    "config:recommended",
+    "config:best-practices",
     ":maintainLockFilesWeekly",
     ":semanticCommits",
     ":semanticCommitScope(deps)",
-    "docker:enableMajor",
-    "docker:pinDigests",
-    "helpers:pinGitHubActionDigests"
+    "docker:enableMajor"
   ],
   "assignees": ["viceice"],
   "dependencyDashboard": true,
