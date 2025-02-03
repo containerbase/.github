@@ -12,7 +12,6 @@ concurrency:
 
 env:
   LOG_LEVEL: debug
-  HUSKY: 0
 
 permissions:
   contents: read
