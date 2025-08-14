@@ -171,6 +171,12 @@
       "matchPackageNames": ["pnpm"],
       "respectLatest": false,
       "dependencyDashboardApproval": false
+    },
+    {
+      "description": "allow unstable arm github runner upgrades",
+      "matchDatasources": ["github-runners"],
+      "matchCurrentValue": "/-arm$/",
+      "ignoreUnstable": false
     }
   ],
   "regexManagers": [
