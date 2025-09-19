@@ -15,7 +15,11 @@
     {
       "description": "Wait three days for npm packages to stabilize, except Renovate.",
       "matchDatasources": ["npm"],
-      "excludePackageNames": ["renovate"],
+      "matchPackageNames": [
+        "!renovate",
+        "!@renovatebot/*",
+        "!@containerbase/*"
+      ],
       "stabilityDays": 3
     },
     {
