@@ -151,10 +151,9 @@
     },
     {
       "description": "Do not pin our dev Docker image digest.",
-      "matchFiles": [".devcontainer/Dockerfile", ".gitpod/Dockerfile"],
+      "matchFiles": [".devcontainer/Dockerfile"],
       "matchPackageNames": [
         "ghcr.io/containerbase/devcontainer",
-        "ghcr.io/containerbase/gitpod",
         "ghcr.io/containerbase/node"
       ],
       "semanticCommitType": "chore",
