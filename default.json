@@ -202,8 +202,8 @@
     },
     {
       "description": "widen node engines",
-      "matchDepName": ["node"],
-      "matchdepType": ["engines"],
+      "matchPackageNames": ["node"],
+      "matchDepTypes": ["engines"],
       "rangeStrategy": "widen"
     }
   ],
