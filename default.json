@@ -35,7 +35,7 @@
         "!/^(?:ghcr.io/)?containerbase//",
         "!@renovatebot/**",
         "!@containerbase/*",
-        "ghcr.io/renovatebot/**"
+        "!ghcr.io/renovatebot/**"
       ],
       "matchUpdateTypes": ["major"],
       "dependencyDashboardApproval": true
