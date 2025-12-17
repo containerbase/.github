@@ -6,7 +6,8 @@
     ":maintainLockFilesWeekly",
     ":semanticCommits",
     ":semanticCommitScope(deps)",
-    "docker:enableMajor"
+    "docker:enableMajor",
+    "customManagers:tsconfigNodeVersions"
   ],
   "assignees": ["viceice"],
   "dependencyDashboard": true,
