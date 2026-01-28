@@ -42,6 +42,13 @@
       "dependencyDashboardApproval": true
     },
     {
+      "description": "require approval for @tsconfig/node replacements",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["@tsconfig/node*"],
+      "matchUpdateTypes": ["replacement"],
+      "dependencyDashboardApproval": true
+    },
+    {
       "description": "Do not require Dependency Dashboard approval for major GitHub Action updates.",
       "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["major"],
