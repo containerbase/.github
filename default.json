@@ -60,6 +60,12 @@
       "automerge": true
     },
     {
+      "description": "Automerge some major updates.",
+      "matchUpdateTypes": ["major"],
+      "matchPackageNames": ["@containerbase/*", "containerbase/internal-tools"],
+      "automerge": true
+    },
+    {
       "description": "v prefix workaround for action updates.",
       "matchDepTypes": ["action"],
       "extractVersion": "^(?<version>v\\d+\\.\\d+\\.\\d+)$",
