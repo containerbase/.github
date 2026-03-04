@@ -149,6 +149,12 @@
       "extractVersion": "^kustomize/v(?<version>.*)$"
     },
     {
+      "description": "Handle tag prefix in haskell cabal repo.",
+      "matchPackageNames": ["haskell/cabal"],
+      "extractVersion": "^cabal-install-v(?<version>.*)$",
+      "versioning": "docker"
+    },
+    {
       "description": "Use `build` semantic commit scope for lockfile maintenance.",
       "matchUpdateTypes": ["lockFileMaintenance"],
       "semanticCommitType": "build"
