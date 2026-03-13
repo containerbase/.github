@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@e5da4a68add3af5560718149016e456b67325032 # v4.2.3
+        uses: containerbase/internal-tools/setup@49821e3847c190a6a7d12c2ed7d92b45dee11a31 # v4.4.0
         with:
           save-cache: true
 
