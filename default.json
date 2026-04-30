@@ -21,7 +21,7 @@
         "!@renovatebot/*",
         "!@containerbase/*"
       ],
-      "stabilityDays": 3
+      "minimumReleaseAge": "3 days"
     },
     {
       "description": "Group linter minor and patch updates",
@@ -79,7 +79,7 @@
       "matchPaths": ["**/*.md"],
       "extends": ["schedule:weekly"],
       "automerge": true,
-      "stabilityDays": 0,
+      "minimumReleaseAge": null,
       "commitMessageTopic": "references to {{{depName}}}",
       "semanticCommitType": "docs",
       "semanticCommitScope": null,
