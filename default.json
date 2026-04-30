@@ -21,7 +21,8 @@
         "!@renovatebot/*",
         "!@containerbase/*"
       ],
-      "minimumReleaseAge": "3 days"
+      "minimumReleaseAge": "3 days",
+      "minimumReleaseAgeBehaviour": "timestamp-required"
     },
     {
       "description": "Group linter minor and patch updates",
