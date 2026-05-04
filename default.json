@@ -14,14 +14,10 @@
   "separateMajorMinor": true,
   "packageRules": [
     {
-      "description": "Wait three days for npm packages to stabilize, except Renovate.",
+      "description": "Exclude packages from minimum relrease age",
       "matchDatasources": ["npm"],
-      "matchPackageNames": [
-        "!renovate",
-        "!@renovatebot/*",
-        "!@containerbase/*"
-      ],
-      "minimumReleaseAge": "3 days"
+      "matchPackageNames": ["renovate", "@renovatebot/*", "@containerbase/*"],
+      "minimumReleaseAge": null
     },
     {
       "description": "Group linter minor and patch updates",
@@ -76,7 +72,7 @@
         "renovate/renovate",
         "ghcr.io/renovatebot/renovate"
       ],
-      "matchPaths": ["**/*.md"],
+      "matchFileNames": ["**/*.md"],
       "extends": ["schedule:weekly"],
       "automerge": true,
       "minimumReleaseAge": null,
@@ -117,7 +113,7 @@
     },
     {
       "description": "Only patch updates on renovate rebuild trigger files.",
-      "matchFiles": ["renovate.Dockerfile"],
+      "matchFileNames": ["renovate.Dockerfile"],
       "separateMinorPatch": true
     },
     {
@@ -127,7 +123,7 @@
     },
     {
       "description": "Only patch updates on renovate rebuild trigger files.",
-      "matchFiles": ["renovate.Dockerfile"],
+      "matchFileNames": ["renovate.Dockerfile"],
       "matchUpdateTypes": ["major", "minor"],
       "enabled": false
     },
@@ -156,18 +152,18 @@
     {
       "description": "Use `build` semantic commit scope for build deps.",
       "matchDatasources": ["npm"],
-      "matchPackageNames": ["@yao-pkg/pkg", "esbuild"],
+      "matchPackageNames": ["@yao-pkg/pkg", "esbuild", "rolldown", "vite"],
       "semanticCommitType": "build"
     },
     {
       "description": "Use `ci` semanctic type for some deps.",
-      "matchPaths": [".github/workflows/**", ".github/actions/**"],
+      "matchFileNames": [".github/workflows/**", ".github/actions/**"],
       "semanticCommitType": "ci",
       "additionalBranchPrefix": "ci-"
     },
     {
       "description": "Do not pin our dev Docker image digest.",
-      "matchFiles": [".devcontainer/Dockerfile"],
+      "matchFileNames": [".devcontainer/Dockerfile"],
       "matchPackageNames": [
         "ghcr.io/containerbase/devcontainer",
         "ghcr.io/containerbase/node"
@@ -177,7 +173,7 @@
     },
     {
       "description": "Do not pin digest for regex manager.",
-      "matchManagers": ["regex"],
+      "matchManagers": ["custom.regex"],
       "pinDigests": false
     },
     {
@@ -221,10 +217,11 @@
       "rangeStrategy": "widen"
     }
   ],
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "description": "Update Renovate references in Markdown files.",
-      "fileMatch": ["\\.md$"],
+      "managerFilePatterns": ["/\\.md$/"],
       "matchStrings": [
         "(?<depName>renovate/renovate):(?<currentValue>[a-z0-9.-]+)(?:@(?<currentDigest>sha256:[a-f0-9]+))?"
       ],
@@ -232,40 +229,51 @@
       "versioningTemplate": "docker"
     },
     {
+      "customType": "regex",
       "description": "Update _VERSION variables in Dockerfiles.",
-      "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
+      "managerFilePatterns": [
+        "/(^|/|\\.)Dockerfile$/",
+        "/(^|/)Dockerfile\\.[^/]*$/"
+      ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>[a-z-]+?))?\\s(?:ENV|ARG) .+?_VERSION=(?<currentValue>.+?)\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
     },
     {
+      "customType": "regex",
       "description": "Update install-* Buildpack commands in Dockerfiles.",
-      "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
+      "managerFilePatterns": [
+        "/(^|/|\\.)Dockerfile$/",
+        "/(^|/)Dockerfile\\.[^/]*$/"
+      ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>[a-z-]+?))?\\sRUN install-[a-z]+? (?<depName>[a-z-]+?) (?<currentValue>.+?)\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
     },
     {
+      "customType": "regex",
       "description": "Update _VERSION variables in Shell and .bats scripts.",
-      "fileMatch": ["\\.sh$", "\\.bats$"],
+      "managerFilePatterns": ["/\\.sh$/", "/\\.bats$/"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>[a-z-]+?))?\\s+[A-Z_]+?_VERSION=(?<currentValue>.+?)\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
     },
     {
+      "customType": "regex",
       "description": "Update `version:` and `_VERSION:` variables in GitHub workflow files.",
-      "fileMatch": ["^\\.github/workflows/[^/]+\\.ya?ml$"],
+      "managerFilePatterns": ["/^\\.github/workflows/[^/]+\\.ya?ml$/"],
       "matchStrings": [
         "\\s+version: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s",
         "\\s*[A-Z_]+?_VERSION: (?<currentValue>.+?) # renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName|lookupName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s"
       ]
     },
     {
+      "customType": "regex",
       "description": "Update `os:` matrix runner variables in GitHub workflow files.",
-      "fileMatch": ["^\\.github/workflows/[^/]+\\.ya?ml$"],
+      "managerFilePatterns": ["/^\\.github/workflows/[^/]+\\.ya?ml$/"],
       "matchStrings": [
         "\\s+os: (?<depName>[a-z-]+?)-(?<currentValue>[a-z0-9.-]+?)\\s"
       ],

@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@3d5edf0288c8a84f5819b99f4485fc9f37dc45d3 # v4.6.8
+        uses: containerbase/internal-tools/setup@23331ae190e7b51e605abcc307203ea16199b0ed # v4.6.14
         with:
           save-cache: true
 
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     container:
-      image: ghcr.io/renovatebot/renovate:43.159.3@sha256:c46d61883826496f0f07763d750878767fbf711a721e6dd9bb765ce7d68c2a1e
+      image: ghcr.io/renovatebot/renovate:43.162.0@sha256:d847140cb0fb08184d4450f185e8fb8e7ae08c60e38d687429008d99f725aee2
       # github hosted runners are running as `1001:127` (ubuntu:docker)
       options: -u 1001:0 --group-add 1000 --group-add 12021 --group-add 127
 
