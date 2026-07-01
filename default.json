@@ -189,12 +189,6 @@
       "dependencyDashboardApproval": false
     },
     {
-      "description": "allow unstable arm github runner upgrades",
-      "matchDatasources": ["github-runners"],
-      "matchCurrentValue": "/-arm$/",
-      "ignoreUnstable": false
-    },
-    {
       "description": "separate multiple major for node",
       "matchDepNames": ["node", "**/node"],
       "separateMultipleMajor": true
