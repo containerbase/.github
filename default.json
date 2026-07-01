@@ -12,6 +12,9 @@
   "assignees": ["viceice"],
   "dependencyDashboard": true,
   "separateMajorMinor": true,
+  "statusCheckWhen": {
+    "artifactError": "always"
+  },
   "packageRules": [
     {
       "description": "Exclude packages from minimum relrease age",
