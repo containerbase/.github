@@ -55,7 +55,7 @@ Who answers review comments:
 I have verified these changes via:
 
 - [ ] Code inspection only, or
-- [ ] Newly added/modified unit tests
+- [ ] Newly added/modified tests
 
 <!-- Please do not force push to your PR's branch after you have created your PR, as doing so forces us to review the whole PR again. This makes it harder for us to review your work because we don't know what has changed. -->
 <!-- PRs will always be squashed by us when we merge your work. You can commit as many times as you need in this branch. -->
