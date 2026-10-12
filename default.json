@@ -76,6 +76,12 @@
       "groupName": "prettier packages"
     },
     {
+      "description": "Update the jactionlint docker image of the workflows and the mise tool together, only once both have the update.",
+      "matchPackageNames": ["ghcr.io/jdx/jactionlint", "jdx/jactionlint"],
+      "groupName": "jactionlint",
+      "minimumGroupSize": 2
+    },
+    {
       "description": "Update references to Docker tags for renovate/renovate in Markdown files weekly.",
       "matchPackageNames": [
         "renovate/renovate",
