@@ -82,6 +82,15 @@
       "minimumGroupSize": 2
     },
     {
+      "description": "Zizmor's GitHub Action doesn't immediately support the latest Zizmor container image until there's an explicit update",
+      "groupName": "zizmor",
+      "matchPackageNames": [
+        "ghcr.io/zizmorcore/zizmor",
+        "zizmorcore/zizmor-action"
+      ],
+      "minimumGroupSize": 2
+    },
+    {
       "description": "Update references to Docker tags for renovate/renovate in Markdown files weekly.",
       "matchPackageNames": [
         "renovate/renovate",
