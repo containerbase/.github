@@ -62,8 +62,8 @@ jobs:
     steps:
       - name: Fail for failed or cancelled presets
         if: |
-          needs.test.result == 'failure' ||
-          needs.test.result == 'cancelled'
+          needs.preset.result == 'failure' ||
+          needs.preset.result == 'cancelled'
         run: exit 1
       - name: Fail for failed or cancelled lint
         if: |
