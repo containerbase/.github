@@ -76,12 +76,6 @@
       "groupName": "prettier packages"
     },
     {
-      "description": "Update the jactionlint docker image of the workflows and the mise tool together, only once both have the update.",
-      "matchPackageNames": ["ghcr.io/jdx/jactionlint", "jdx/jactionlint"],
-      "groupName": "jactionlint",
-      "minimumGroupSize": 2
-    },
-    {
       "description": "Update references to Docker tags for renovate/renovate in Markdown files weekly.",
       "matchPackageNames": [
         "renovate/renovate",
@@ -168,6 +162,14 @@
     {
       "description": "Use `ci` semanctic type for some deps.",
       "matchFileNames": [".github/workflows/**", ".github/actions/**"],
+      "semanticCommitType": "ci",
+      "additionalBranchPrefix": "ci-"
+    },
+    {
+      "description": "Update the jactionlint docker image of the workflows and the mise tool together, only once both have the update. Must stay after the ci rule so both updates share the branch prefix.",
+      "matchPackageNames": ["ghcr.io/jdx/jactionlint", "jdx/jactionlint"],
+      "groupName": "jactionlint",
+      "minimumGroupSize": 2,
       "semanticCommitType": "ci",
       "additionalBranchPrefix": "ci-"
     },
