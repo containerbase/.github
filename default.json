@@ -17,6 +17,12 @@
   },
   "packageRules": [
     {
+      "description": "Wait 7 days for runtime dependencies, so published packages never require a younger version",
+      "matchDatasources": ["npm"],
+      "matchDepTypes": ["dependencies", "peerDependencies", "optionalDependencies"],
+      "minimumReleaseAge": "7 days"
+    },
+    {
       "description": "Exclude packages from minimum relrease age",
       "matchDatasources": ["npm"],
       "matchPackageNames": ["renovate", "@renovatebot/*", "@containerbase/*"],
