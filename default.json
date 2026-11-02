@@ -165,6 +165,12 @@
       "additionalBranchPrefix": "ci-"
     },
     {
+      "description": "Update the flux-mirror setup action and its CLI version input together, only once both have the update.",
+      "matchPackageNames": ["fluxcd/flux-mirror"],
+      "groupName": "flux-mirror",
+      "minimumGroupSize": 2
+    },
+    {
       "description": "Do not pin our dev Docker image digest.",
       "matchFileNames": [".devcontainer/Dockerfile"],
       "matchPackageNames": ["ghcr.io/containerbase/devcontainer", "ghcr.io/containerbase/node"],
