@@ -17,9 +17,10 @@
   },
   "packageRules": [
     {
-      "description": "Wait 7 days for runtime dependencies, so published packages never require a younger version",
+      "description": "Wait 7 days for runtime dependencies, so published packages never require a younger version. Only package files with a version, private ones have none, see https://github.com/renovatebot/renovate/discussions/47951",
       "matchDatasources": ["npm"],
       "matchDepTypes": ["dependencies", "peerDependencies", "optionalDependencies"],
+      "matchJsonata": ["$exists(packageFileVersion)"],
       "minimumReleaseAge": "7 days"
     },
     {
