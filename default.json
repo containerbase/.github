@@ -10,7 +10,9 @@
     "customManagers:tsconfigNodeVersions"
   ],
   "assignees": ["viceice"],
-  "dependencyDashboard": true,
+  "dependencyDashboard": {
+    "enabled": true
+  },
   "separateMajorMinor": true,
   "statusCheckWhen": {
     "artifactError": "always"
