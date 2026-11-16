@@ -3,17 +3,12 @@
   "description": "Default preset for our containerbase repositories.",
   "extends": [
     "config:best-practices",
-    ":maintainLockFilesWeekly",
     ":semanticCommits",
     ":semanticCommitScope(deps)",
     "docker:enableMajor",
     "customManagers:tsconfigNodeVersions"
   ],
   "assignees": ["viceice"],
-  "dependencyDashboard": {
-    "enabled": true
-  },
-  "separateMajorMinor": true,
   "statusCheckWhen": {
     "artifactError": "always"
   },
